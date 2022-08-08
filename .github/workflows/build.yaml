@@ -23,10 +23,10 @@ jobs:
         run: |
           if [ ! -f "gradlew" ]; then gradle wrapper; fi
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assemblerelease --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          name: my-build-apk
-          path: ./**/*.apk
+          name: TVBox_release_${{ env.tag }}.apk
+          path: ./*.apk
 
